@@ -25,9 +25,14 @@ public class RespondentAnswerDAO {
 
 
     public boolean remove(RespondentAnswer ra){
-        getCurrentSession().remove(ra);
-        getCurrentSession().flush(); // RespondenAnswer sil deyince silmiyordu bununla senkronize yaptık veritabanı.
-        return true;
+        try {
+            getCurrentSession().remove(ra);
+            getCurrentSession().flush(); // RespondenAnswer sil deyince silmiyordu bununla senkronize yaptık veritabanı.
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
     public long create(RespondentAnswer respondentAnswer) {
         getCurrentSession().save(respondentAnswer);

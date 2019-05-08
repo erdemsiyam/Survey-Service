@@ -27,15 +27,16 @@ public class SurveyDAO {
         getCurrentSession().save(survey);
         return survey.getId();
     }
-    public boolean update(Survey survey) {
-        getCurrentSession().save(survey);
-        return true;
-    }
     public List<Survey> list() {
         return getCurrentSession().createQuery("from Survey").list();
     }
     public boolean remove(Survey survey){
-        getCurrentSession().remove(survey);
+        try {
+            getCurrentSession().remove(survey);
+        }
+        catch (Exception e){
+            return false;
+        }
         return true;
     }
 
@@ -94,7 +95,7 @@ public class SurveyDAO {
         return surveyRespondentCount;
     }
 
-    public boolean surveyTitleDupliceControl(String title){
+    public boolean surveyTitleDuplicateControl(String title){
         CriteriaBuilder criteriaBuilder = getCurrentSession().getCriteriaBuilder();
         CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
         Root<Survey> root = criteriaQuery.from(Survey.class);

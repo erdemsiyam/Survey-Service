@@ -1,4 +1,4 @@
-package com.tpaWorkers.TestSurveyService.dao;
+package com.tpaWorkers.TestSurveyService;
 
 import com.devskiller.jfairy.Fairy;
 import com.devskiller.jfairy.producer.person.Person;

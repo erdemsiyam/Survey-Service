@@ -31,8 +31,13 @@ public class AnswerDAO {
         return answer.getId();
     }
     public boolean remove(Answer answer){
-        getCurrentSession().remove(answer);
-        return true;
+        try {
+            getCurrentSession().remove(answer);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     //our funcs

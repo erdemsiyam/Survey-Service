@@ -106,7 +106,7 @@ public class SurveyService {
                 throw new SurveyException("Title Can Not Empty");
             if (survey.getExplanation().equalsIgnoreCase(""))
                 throw new SurveyException("Explanation Can Not Empty");
-            if (surveyDAO.surveyTitleDupliceControl(survey.getTitle()))
+            if (surveyDAO.surveyTitleDuplicateControl(survey.getTitle()))
                 throw new SurveyException("This Title Using");
             if (survey.getEndDate().getTime() <= new Date().getTime() || survey.getEndDate().getTime() <= survey.getStartDate().getTime())
                 throw new SurveyException("End Date Can Not Before Now Or Start Date");

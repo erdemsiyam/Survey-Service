@@ -35,8 +35,13 @@ public class QuestionDAO {
         return getCurrentSession().createQuery("from Question").list();
     }
     public boolean remove(Question question){
-        getCurrentSession().remove(question);
-        return true;
+        try {
+            getCurrentSession().remove(question);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     // our funcs

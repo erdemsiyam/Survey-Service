@@ -1,4 +1,4 @@
-package com.tpaWorkers.TestSurveyService.dao;
+package com.tpaWorkers.TestSurveyService;
 
 import com.tpaWorkers.SurveyService.config.AppConfig;
 import com.tpaWorkers.SurveyService.config.WebAppInitializer;

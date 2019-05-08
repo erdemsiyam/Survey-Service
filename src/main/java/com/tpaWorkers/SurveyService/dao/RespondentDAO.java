@@ -34,7 +34,12 @@ public class RespondentDAO {
         return getCurrentSession().createQuery("from Respondent").list();
     }
     public boolean remove(Respondent respondent){
-        getCurrentSession().remove(respondent);
+        try {
+            getCurrentSession().remove(respondent);
+        }
+        catch (Exception e){
+            return false;
+        }
         return true;
     }
 
