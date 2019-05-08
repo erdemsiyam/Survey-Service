@@ -2,13 +2,14 @@ package com.tpaWorkers.TestSurveyService.dao;
 
 import com.tpaWorkers.SurveyService.dao.model.Respondent;
 import com.tpaWorkers.SurveyService.dao.model.Survey;
+import com.tpaWorkers.TestSurveyService.SuperTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
 
-public class TestSurveyDAO extends SuperDaoTest {
+public class TestSurveyDAO extends SuperTest {
 
     @Test
     public void testGet(){
@@ -88,7 +89,7 @@ public class TestSurveyDAO extends SuperDaoTest {
 
         long respondentCount = surveyDAO.getRespondentCountForSurvey(survey.getId());
         // iki tane katılımcı olduğu şartını sağlamalı
-        Assert.assertTrue(respondentCount == 2);
+        Assert.assertEquals(respondentCount,2);
     }
 
     @Test

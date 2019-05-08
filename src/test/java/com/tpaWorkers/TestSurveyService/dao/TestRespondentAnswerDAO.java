@@ -5,6 +5,7 @@ import com.tpaWorkers.SurveyService.config.AppConfig;
 import com.tpaWorkers.SurveyService.config.WebAppInitializer;
 import com.tpaWorkers.SurveyService.config.WebConfig;
 import com.tpaWorkers.SurveyService.dao.model.*;
+import com.tpaWorkers.TestSurveyService.SuperTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,7 +22,7 @@ import java.util.List;
 @Transactional(readOnly = false)
 @WebAppConfiguration
 @Rollback(value = true)
-public class TestRespondentAnswerDAO extends SuperDaoTest {
+public class TestRespondentAnswerDAO extends SuperTest {
 
     @Test
     public void testRemove(){
@@ -72,7 +72,7 @@ public class TestRespondentAnswerDAO extends SuperDaoTest {
         Long times = respondentAnswerDAO.howManyTimeSelectedThisAnswer(question.getId(),answer.getId());
 
         // 2 kez o cevabın seçilmiş olması gerekiyor.
-        Assert.assertTrue(times != null && times == 2);
+        Assert.assertEquals(times.intValue(), 2);
 
         //ARDINDAN KAYDEDİLEN VERİLERİ SİL
         surveyDAO.remove(survey);

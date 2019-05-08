@@ -1,26 +1,14 @@
 package com.tpaWorkers.TestSurveyService.dao;
 
-import com.tpaWorkers.SurveyService.config.AppConfig;
-import com.tpaWorkers.SurveyService.config.WebAppInitializer;
-import com.tpaWorkers.SurveyService.config.WebConfig;
-import com.tpaWorkers.SurveyService.dao.QuestionDAO;
-import com.tpaWorkers.SurveyService.dao.SurveyDAO;
 import com.tpaWorkers.SurveyService.dao.model.Question;
 import com.tpaWorkers.SurveyService.dao.model.Survey;
+import com.tpaWorkers.TestSurveyService.SuperTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
-public class TestQuestionDAO extends SuperDaoTest{
+public class TestQuestionDAO extends SuperTest {
 
     @Test
     public void testGet(){

@@ -9,10 +9,12 @@ public class RegisterSurveyModel {
     public RespondentModel Respondent;
     public List<RespondentAnswerModel> RespondentAnswers;
 
-    public class RespondentModel{
-        public String NameAndSurname;
-        public String EMail;
-        public String Phone;
+    public static class RespondentModel{
+        public RespondentModel() {}
+
+        private String NameAndSurname;
+        private String EMail;
+        private String Phone;
 
         public String getNameAndSurname() {return NameAndSurname;}
         public void setNameAndSurname(String nameAndSurname) {NameAndSurname = nameAndSurname;}
@@ -28,9 +30,11 @@ public class RegisterSurveyModel {
             return respondent;
         }
     }
-    public class RespondentAnswerModel{
-        public long QuestionId;
-        public long AnswerId;
+    public static class RespondentAnswerModel{
+        public RespondentAnswerModel() {}
+
+        private long QuestionId;
+        private long AnswerId;
 
         public long getQuestionId() {return QuestionId;}
         public void setQuestionId(long questionId) {QuestionId = questionId;}

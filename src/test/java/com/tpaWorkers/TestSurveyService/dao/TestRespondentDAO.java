@@ -1,13 +1,14 @@
 package com.tpaWorkers.TestSurveyService.dao;
 
 import com.tpaWorkers.SurveyService.dao.model.*;
+import com.tpaWorkers.TestSurveyService.SuperTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
 
-public class TestRespondentDAO  extends SuperDaoTest  {
+public class TestRespondentDAO  extends SuperTest {
 
     @Test
     public void testCreate(){

@@ -26,7 +26,13 @@ public class UserController {
 
     @GetMapping(value = "/surveys")
     public String getReadySurveys()  {
-        String response = new Gson().toJson(surveyService.getReadySurveys());
+        String response ;
+        try {
+            response = new Gson().toJson(surveyService.getReadySurveys());
+        }
+        catch (Exception e){
+            response = "{\"Error\":\""+e.getMessage()+"\"}";
+        }
         return response;
     }
 
@@ -54,10 +60,7 @@ public class UserController {
         catch (SurveyException e){
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
-        catch (NullPointerException e){
-            response = "{\"Error\":\""+"Make Sure Survey Response Model Designed Correctly."+"\"}";
-        }
-        catch (JsonSyntaxException e){
+        catch (RuntimeException e){
             response = "{\"Error\":\""+"Make Sure Survey Response Model Designed Correctly."+"\"}";
         }
         catch (Exception e){

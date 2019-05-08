@@ -3,11 +3,12 @@ package com.tpaWorkers.TestSurveyService.dao;
 import com.tpaWorkers.SurveyService.dao.model.Answer;
 import com.tpaWorkers.SurveyService.dao.model.Question;
 import com.tpaWorkers.SurveyService.dao.model.Survey;
+import com.tpaWorkers.TestSurveyService.SuperTest;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
 
-public class TestAnswerDAO extends SuperDaoTest {
+public class TestAnswerDAO extends SuperTest {
 
     @Test
     public void testGet(){
@@ -25,7 +26,7 @@ public class TestAnswerDAO extends SuperDaoTest {
         testAnswer.setContent("test");
 
         Long id = answerDAO.create(testAnswer);
-        Assert.assertTrue(id != null && id > 0);
+        Assert.assertTrue( id > 0);
     }
 
     @Test

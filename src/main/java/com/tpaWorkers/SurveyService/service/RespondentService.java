@@ -123,12 +123,12 @@ public class RespondentService {
         for (Question q : questions) {
             boolean haveQuestion = false;
             for (RegisterSurveyModel.RespondentAnswerModel ram : model.getRespondentAnswers()) {
-                if (q.getId() == ram.QuestionId) {
+                if (q.getId() == ram.getQuestionId()) {
                     haveQuestion = true; // db deki soru kullanıcının gönderdiği soruyla eşleşti, bu döngü bitebilir
                     boolean haveAnswer = false;
                     List<Answer> answers = answerDAO.getAnswersByQuestion(q.getId());
                     for (Answer a : answers) {
-                        if (a.getId() == ram.AnswerId) {
+                        if (a.getId() == ram.getAnswerId()) {
                             haveAnswer = true; // evet bu cevap bu sorunundur dedik.
                         }
                     }
@@ -148,8 +148,8 @@ public class RespondentService {
         respondentDAO.create(respondent);
         for(RegisterSurveyModel.RespondentAnswerModel ram : model.getRespondentAnswers()){
             RespondentAnswer ra = new RespondentAnswer();
-            Question question = questionDAO.get(ram.QuestionId);
-            Answer answer = answerDAO.get(ram.AnswerId);
+            Question question = questionDAO.get(ram.getQuestionId());
+            Answer answer = answerDAO.get(ram.getAnswerId());
             ra.setRespondent(respondent);
             ra.setQuestion(question);
             ra.setAnswer(answer);

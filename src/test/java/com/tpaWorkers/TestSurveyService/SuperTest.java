@@ -1,10 +1,12 @@
-package com.tpaWorkers.TestSurveyService.dao;
+package com.tpaWorkers.TestSurveyService;
 
 import com.tpaWorkers.SurveyService.config.AppConfig;
 import com.tpaWorkers.SurveyService.config.WebAppInitializer;
 import com.tpaWorkers.SurveyService.config.WebConfig;
+import com.tpaWorkers.SurveyService.controller.UserController;
 import com.tpaWorkers.SurveyService.dao.*;
 import com.tpaWorkers.SurveyService.dao.model.*;
+import com.tpaWorkers.SurveyService.service.SurveyService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -17,11 +19,12 @@ import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {WebAppInitializer.class, AppConfig.class, WebConfig.class})
-@Transactional(readOnly = false)
+@Transactional() //readOnly = false
 @WebAppConfiguration
-@Rollback(value = true)
+@Rollback() // value = true
 //@Ignore //test yapmaz
-public class SuperDaoTest {
+public class SuperTest {
+
     @Autowired
     protected RespondentAnswerDAO respondentAnswerDAO;
 
@@ -37,7 +40,13 @@ public class SuperDaoTest {
     @Autowired
     protected SurveyDAO surveyDAO;
 
-    // Örnek Model Oluşturma.
+    @Autowired
+    protected SurveyService surveyService;
+
+    @Autowired
+    protected UserController userController;
+
+    // Örnek Dao - Model Oluşturma.
     protected Survey createSurvey(){
         Survey survey = new Survey();
         survey.setTitle("Test Survey");
