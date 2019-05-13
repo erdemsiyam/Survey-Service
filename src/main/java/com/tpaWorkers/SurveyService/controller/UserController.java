@@ -1,11 +1,12 @@
 package com.tpaWorkers.SurveyService.controller;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import com.tpaWorkers.SurveyService.service.post_model.RegisterSurveyModel;
 import com.tpaWorkers.SurveyService.exception.SurveyException;
 import com.tpaWorkers.SurveyService.service.RespondentService;
 import com.tpaWorkers.SurveyService.service.SurveyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @ResponseStatus(HttpStatus.OK)
 @RequestMapping(value = "/api/user/*",consumes = {MediaType.ALL_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE}) // her şey kabul, sadece json UTF-8 üretir.
 public class UserController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private SurveyService surveyService;
@@ -33,6 +36,7 @@ public class UserController {
         catch (Exception e){
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -44,6 +48,7 @@ public class UserController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -67,6 +72,11 @@ public class UserController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
+    }
+
+    private void printLog(String content){
+        LOG.info("Response '"+content+"'");
     }
 }

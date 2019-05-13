@@ -54,8 +54,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //registry.addInterceptor(new RequestLoggingInterceptor()).addPathPatterns("/*");
-        registry.addInterceptor(userInterceptor()).addPathPatterns(new String[] { "/api/user/*"});
-        registry.addInterceptor(adminInterceptor()).addPathPatterns(new String[] { "/api/admin/*"});
+        registry.addInterceptor(userInterceptor()).addPathPatterns(new String[] { "/api/user/*","/api/user/**"});
+        registry.addInterceptor(adminInterceptor()).addPathPatterns(new String[] { "/api/admin/*","/api/admin/**"});
     }
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) { // sunum 6 : Özel Olarak Karşılama Yapılmayan İsteklerin Servlet Taşıyıcısına Devri

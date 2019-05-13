@@ -9,6 +9,8 @@ import com.tpaWorkers.SurveyService.service.AnswerService;
 import com.tpaWorkers.SurveyService.service.QuestionService;
 import com.tpaWorkers.SurveyService.service.RespondentService;
 import com.tpaWorkers.SurveyService.service.SurveyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @ResponseStatus(HttpStatus.OK)
 @RequestMapping(value = "/api/admin/*",consumes = {MediaType.ALL_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class AdminController {
+    private static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
     @Autowired
     private SurveyService surveyService;
@@ -30,7 +33,6 @@ public class AdminController {
     @Autowired
     private AnswerService answerService;
 
-
     @GetMapping(value = "/surveys")
     public String getAllSurveys()  {
         String response;
@@ -39,6 +41,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -50,6 +53,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -61,6 +65,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -72,6 +77,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -83,6 +89,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -99,6 +106,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -119,6 +127,7 @@ public class AdminController {
         catch (NullPointerException e){
             response = "{\"Error\":\"Make Sure Survey Create Model Designed Correctly.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -143,7 +152,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
-
+        printLog(response);
         return response;
     }
 
@@ -160,6 +169,7 @@ public class AdminController {
             e.printStackTrace();;
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -174,12 +184,15 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
     @GetMapping(value = "/respondents")
     public String getAllRespondent()  {
-        return  new Gson().toJson(respondentService.getAllRespondent());
+        String response = new Gson().toJson(respondentService.getAllRespondent());
+        printLog(response);
+        return response;
     }
 
     @GetMapping(value = "/respondent/{id}")
@@ -190,6 +203,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -206,6 +220,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -220,6 +235,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -231,6 +247,7 @@ public class AdminController {
         } catch (SurveyException e) {
             response = "{\"Error\":\""+e.getMessage()+"\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -246,6 +263,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -273,6 +291,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -289,6 +308,7 @@ public class AdminController {
             e.printStackTrace();
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
     }
 
@@ -305,6 +325,11 @@ public class AdminController {
         catch (Exception e){
             response = "{\"Error\":\"Server Error.\"}";
         }
+        printLog(response);
         return response;
+    }
+
+    private void printLog(String content){
+        LOG.info("Response '"+content+"'");
     }
 }
