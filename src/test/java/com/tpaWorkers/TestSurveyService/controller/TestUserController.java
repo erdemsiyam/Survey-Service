@@ -23,7 +23,7 @@ public class TestUserController extends SuperTest {
 
             String response = userController.getReadySurveys();
             List<SurveySingleVM> ssvm = new Gson().fromJson(response, List.class);
-            Assert.assertNotNull(ssvm);
+            Assert.assertTrue( ssvm.size() > 0);
         }
         catch (Exception e){
             Assert.fail();
