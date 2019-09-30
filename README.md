@@ -1,14 +1,14 @@
 # Summary
-<p>
-This is a survey application. Easy to integrated to your own system as a microservice.
-Used Spring MVC 5 and MySQL 8.
-You can change the Database and properties(hibernate.properties) if you wish.
-</p>
+<p>This is a survey application. Easy to integrated to your own system as a microservice.</p>
+<p>Used Spring MVC 5 and MySQL 8.</p>
+<p>You can change the Database and properties(hibernate.properties) if you wish.</p>
+
 
 # API Requests
 <p align="center">
 <a href="/img">CLICK FOR POST AND PUT JSON FORMATS.</a>
 </p>
+
 1. Admin Requests
 	- Survey General Works
 		-Get	api/admin/surveys               Get All Surveys
@@ -33,7 +33,6 @@ You can change the Database and properties(hibernate.properties) if you wish.
 		-PUT	api/admin/question/{id}/addanswers	Add Answers To Specified Question
 		-DELETE	api/admin/question/{id}/delete		Delete Question
 		-DELETE	api/admin/answer/{id}/delete		Delete Answer
-
 2. User Requests
 	- Participation Works
 		-GET	api/user/surveys            	List Ready Surveys
