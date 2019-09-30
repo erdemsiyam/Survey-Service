@@ -9,7 +9,7 @@
 <a href="/img">CLICK FOR POST AND PUT JSON FORMATS.</a>
 </p>
 
-1. Admin Requests
+1-Admin Requests
 	-Survey General Works
 		-Get	api/admin/surveys               	Get All Surveys
 		-GET	api/admin/surveys/notready		Get Not Ready Surveys
@@ -33,7 +33,8 @@
 		-PUT	api/admin/question/{id}/addanswers	Add Answers To Specified Question
 		-DEL	api/admin/question/{id}/delete		Delete Question
 		-DEL	api/admin/answer/{id}/delete		Delete Answer
-2. User Requests
+
+2-User Requests
 	-Participation Works
 		-GET	api/user/surveys            		List Ready Surveys
 		-GET	api/user/survey/{id}/join		Get Question And Answers Of Specified Survey.
