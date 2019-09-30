@@ -1,7 +1,7 @@
 # Summary
-<p>This is a survey application. Easy to integrated to your own system as a microservice.</p>
-<p>Used Spring MVC 5 and MySQL 8.</p>
-<p>You can change the Database and properties(hibernate.properties) if you wish.</p>
+<p align="center">This is a survey application. Easy to integrated to your own system as a microservice.</p>
+<p align="center">Used Spring MVC 5 and MySQL 8.</p>
+<p align="center">You can change the Database and properties(hibernate.properties) if you wish.</p>
 
 
 # API Requests
