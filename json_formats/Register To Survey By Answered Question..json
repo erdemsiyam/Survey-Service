@@ -1,0 +1,21 @@
+{
+  "Respondent": {
+    "NameAndSurname": "< NAME >",
+    "EMail": "< MAIL >",
+    "Phone": "< PHONE >"
+  },
+  "RespondentAnswers" : [
+      {
+        "QuestionId":<ID>,
+        "AnswerId":<ID>
+      },
+      {
+        "QuestionId":2,
+        "AnswerId":127
+      },
+      {
+        "QuestionId":3,
+        "AnswerId":130
+      }
+    ]
+}

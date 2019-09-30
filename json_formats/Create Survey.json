@@ -1,0 +1,36 @@
+{
+  "Survey": {
+    "Title": "< Survey Title >",
+    "Explanation": "< Survey Summary >",
+    "StartDate": "2019/05/02 18:40:00",
+    "EndDate": "2019/05/04 19:40:00",
+    "IsReady": "true"
+  },
+  "Questions": [
+    {
+      "Title": "< Question 1 >",
+      "Answers": [
+        {
+          "Content": "< Answer 1>"
+        },
+        {
+          "Content": "< Answer 2>"
+        }
+      ]
+    },
+    {
+      "Title": "< Question 2 >",
+      "Answers": [
+        {
+          "Content": "< Answer 1>"
+        },
+        {
+          "Content": "< Answer 2>"
+        },
+        {
+          "Content": "< Answer 3>"
+        }
+      ]
+    }
+  ]
+}
