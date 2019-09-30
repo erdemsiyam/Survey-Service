@@ -1,6 +1,8 @@
 # Summary
 This is a survey application. Easy to integrated to your own system as a microservice.
+
 Used Spring MVC 5 and MySQL 8.
+
 You can change the Database and properties(hibernate.properties) if you wish.
 
 # API Requests
@@ -10,7 +12,7 @@ You can change the Database and properties(hibernate.properties) if you wish.
 1-Admin Requests
 
 	-Survey General Works
-		-<span style="color:blue">GET</span>	api/admin/surveys               Get All Surveys
+		-<font color='red'>Get</font>	api/admin/surveys               Get All Surveys
 		-GET	api/admin/surveys/notready	Get Not Ready Surveys
 		-GET	api/admin/survey/{id}		Get Single Survey
 	-Survey Create Works
