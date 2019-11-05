@@ -6,7 +6,7 @@
 
 # API Requests
 <p align="center">
-<a href="/img">CLICK FOR POST AND PUT JSON FORMATS.</a>
+<a href="/json_formats">CLICK FOR POST AND PUT JSON FORMATS.</a>
 </p>
 
 ### Admin Requests
